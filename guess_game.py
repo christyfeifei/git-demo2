@@ -1,13 +1,14 @@
 import random
 
-# 1.增加勝負判斷(提示猜了幾次)
-# 2.提示區間
+# 1.增加勝負判斷
+# 2.贏的時候提示猜了幾次
+# 3.提示區間
 
 x = random.randint(1, 50)
 print(x)
 win = False
 for i in range(5):
-    y = eval(input('請猜一個數字(1~50之間):'))
+    y = eval(input(f'[{i+1}/5]請猜一個數字(1~50之間):'))
     if x == y:
         win = True
         break
@@ -17,4 +18,8 @@ for i in range(5):
     else:
         print('猜小一點')
 
-print(f'遊戲結束!答案為:{x}')
+
+if win:
+    print(f'恭禧過關!總共猜:{i+1}次')
+else:
+    print(f'遊戲結束!答案為:{x}')
